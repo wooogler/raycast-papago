@@ -1,8 +1,6 @@
 import { ActionPanel, getPreferenceValues, List, showToast, Toast, Action } from "@raycast/api";
 import axios, { AxiosRequestConfig } from "axios";
-import qs from "qs";
 import React, { useEffect, useState } from "react";
-import request from "request";
 
 interface Preferences {
   clientId: string;
