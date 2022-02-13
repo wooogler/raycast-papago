@@ -3,7 +3,7 @@
   "name": "translate",
   "title": "Papago Translate",
   "description": "Translate a sentence using Papago API",
-  "icon": "command-icon.png",
+  "icon": "papago-icon.png",
   "author": "woogler",
   "license": "MIT",
   "commands": [
