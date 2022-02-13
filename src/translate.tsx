@@ -1,5 +1,6 @@
 import { ActionPanel, getPreferenceValues, List, showToast, Toast, Action } from "@raycast/api";
 import axios, { AxiosRequestConfig } from "axios";
+import qs from "qs";
 import React, { useEffect, useState } from "react";
 
 interface Preferences {
@@ -44,16 +45,19 @@ function Command() {
     });
 
     instance
-      .post("/detectLangs", { query: query })
+      .post("/detectLangs", qs.stringify({ query: query }))
       .then((res) => {
         const source = res.data.langCode;
         const target = source == "ko" ? "en" : "ko";
         instance
-          .post("/n2mt", {
-            text: query,
-            source,
-            target,
-          })
+          .post(
+            "/n2mt",
+            qs.stringify({
+              text: query,
+              source,
+              target,
+            })
+          )
           .then((res) => {
             setResult(res.data.message.result.translatedText);
           })
